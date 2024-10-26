@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BruteForce</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="Executar">Executar</string>
+    <string name="Interromper">Interromper</string>
+    <string name="Senha">Senha</string>
+    <string name="CaractersIniciais">Caracteres iniciais</string>
+    <string name="Insira_uma_senha_para_iniciar">Insira uma senha para iniciar</string>
+    <string name="comprimento_x_caractere_s">Comprimento:\n%1$d caractere(s)</string>
+    <string name="tentativas_x">Tentativas:\n%1$s</string>
+    <string name="tempo_estimado_x">Tempo estimado:\n%1$s</string>
+    <string name="Tempo_decorrido_x">Tempo decorrido:\n%1$s</string>
+    <string name="Digite_um_valor_maior_que_zero">Digite um valor maior que zero</string>
+
+</resources>
