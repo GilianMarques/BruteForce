@@ -17,5 +17,13 @@
     <string name="tempo_estimado_x">Tempo estimado:\n%1$s</string>
     <string name="Tempo_decorrido_x">Tempo decorrido:\n%1$s</string>
     <string name="Digite_um_valor_maior_que_zero">Digite um valor maior que zero</string>
+    <string name="Pausa_entre_iteracoes">Pausa entre iterações</string>
+    <string name="a">Selecione um pelo menos um tipo de caractere pra considerar na busca</string>
+    <string name="Selecione_um_pelo_menos_um_tipo_de_caractere_pra_considerar_na_busca">Selecione um pelo menos um tipo de caractere pra considerar na busca</string>
+    <string name="cosiderar_caracteres_especiais">Cosiderar caracteres especiais</string>
+    <string name="cosiderar_a_z">Cosiderar A-Z</string>
+    <string name="cosiderar_a_z_min">Cosiderar a-z</string>
+    <string name="cosiderar_0_9">Cosiderar 0-9</string>
+    <string name="pressione_executar_para_executar_o_benchmark">Pressione \'Executar\' para executar o benchmark</string>
 
 </resources>

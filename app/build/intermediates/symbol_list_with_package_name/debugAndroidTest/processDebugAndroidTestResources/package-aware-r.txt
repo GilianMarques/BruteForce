@@ -1,0 +1,3 @@
+com.example.bruteforce.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

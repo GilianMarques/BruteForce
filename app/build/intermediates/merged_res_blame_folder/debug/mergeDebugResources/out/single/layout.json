@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.bruteforce.app-mergeDebugResources-3:/layout/activity_main.xml",
+        "source": "com.example.bruteforce.app-main-6:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gilian\\.gradle\\daemon\\8.7\\com.example.bruteforce.app-mergeDebugResources-3:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Gilian\\.gradle\\daemon\\8.7\\com.example.bruteforce.app-main-6:\\layout\\activity_main.xml"
+    }
+]

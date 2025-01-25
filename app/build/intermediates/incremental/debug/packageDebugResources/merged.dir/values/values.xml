@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="fab_margin">16dp</dimen>
+    <string name="CaractersIniciais">Caracteres iniciais</string>
+    <string name="Digite_um_valor_maior_que_zero">Digite um valor maior que zero</string>
+    <string name="Executar">Executar</string>
+    <string name="Insira_uma_senha_para_iniciar">Insira uma senha para iniciar</string>
+    <string name="Interromper">Interromper</string>
+    <string name="Pausa_entre_iteracoes">Pausa entre iterações</string>
+    <string name="Selecione_um_pelo_menos_um_tipo_de_caractere_pra_considerar_na_busca">Selecione um pelo menos um tipo de caractere pra considerar na busca</string>
+    <string name="Senha">Senha</string>
+    <string name="Tempo_decorrido_x">Tempo decorrido:\n%1$s</string>
+    <string name="a">Selecione um pelo menos um tipo de caractere pra considerar na busca</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">BruteForce</string>
+    <string name="comprimento_x_caractere_s">Comprimento:\n%1$d caractere(s)</string>
+    <string name="cosiderar_0_9">Cosiderar 0-9</string>
+    <string name="cosiderar_a_z">Cosiderar A-Z</string>
+    <string name="cosiderar_a_z_min">Cosiderar a-z</string>
+    <string name="cosiderar_caracteres_especiais">Cosiderar caracteres especiais</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="next">Next</string>
+    <string name="pressione_executar_para_executar_o_benchmark">Pressione \'Executar\' para executar o benchmark</string>
+    <string name="previous">Previous</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="tempo_estimado_x">Tempo estimado:\n%1$s</string>
+    <string name="tentativas_x">Tentativas:\n%1$s</string>
+    <style name="Base.Theme.BruteForce" parent="Theme.Material3.DayNight.NoActionBar"/>
+    <style name="Theme.BruteForce" parent="Base.Theme.BruteForce"/>
+</resources>
