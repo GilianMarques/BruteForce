@@ -33,15 +33,6 @@ class MainActivity : AppCompatActivity(), Contract.Callback {
     private val uiUpdateInterval = 50L
     private var lastUiUpdate = 0L
 
-    private fun prepareToExecuteAlgorithm() {
-
-        password = binding.tilPassword.editText?.text.toString()
-        delayBetweenIterations = binding.tilPauseBetweenIterations.editText?.text.toString().ifBlank { "0" }.toLong()
-
-        binding.fabAction.setIconResource(R.drawable.vec_stop)
-        binding.fabAction.setText(R.string.Interromper)
-
-    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +44,17 @@ class MainActivity : AppCompatActivity(), Contract.Callback {
         setupViews()
         adjustAppbarHeight()
 
-        binding.tilPassword.editText?.setText("A1b,")
+        binding.tilPassword.editText?.setText("d63x")
+    }
+
+    private fun prepareToExecuteAlgorithm() {
+
+        password = binding.tilPassword.editText?.text.toString()
+        delayBetweenIterations = binding.tilPauseBetweenIterations.editText?.text.toString().ifBlank { "0" }.toLong()
+
+        binding.fabAction.setIconResource(R.drawable.vec_stop)
+        binding.fabAction.setText(R.string.Interromper)
+
     }
 
     private fun setupViews() = binding.apply {

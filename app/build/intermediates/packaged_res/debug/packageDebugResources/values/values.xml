@@ -22,7 +22,7 @@
     <string name="cosiderar_caracteres_especiais">Cosiderar caracteres especiais</string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="next">Next</string>
-    <string name="pressione_executar_para_executar_o_benchmark">Pressione \'Executar\' para executar o benchmark</string>
+    <string name="pressione_executar_para_executar_o_benchmark">Pressione \'Executar\' para iniciar o algoritimo</string>
     <string name="previous">Previous</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="tempo_estimado_x">Tempo estimado:\n%1$s</string>

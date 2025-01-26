@@ -24,6 +24,6 @@
     <string name="cosiderar_a_z">Cosiderar A-Z</string>
     <string name="cosiderar_a_z_min">Cosiderar a-z</string>
     <string name="cosiderar_0_9">Cosiderar 0-9</string>
-    <string name="pressione_executar_para_executar_o_benchmark">Pressione \'Executar\' para executar o benchmark</string>
+    <string name="pressione_executar_para_executar_o_benchmark">Pressione \'Executar\' para iniciar o algoritimo</string>
 
 </resources>
