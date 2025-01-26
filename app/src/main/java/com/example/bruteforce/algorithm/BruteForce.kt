@@ -1,10 +1,10 @@
 package com.example.bruteforce.algorithm
 
-class BruteForce(private val callback: Contract.Callback) : Contract {
+class BruteForce(private  val callback: suspend (guess: String, attempts: Int) -> Boolean) {
 
     private var passwordFound: Boolean = false
     private var execute: Boolean = true
-    private val rotors: MutableList<Rotor> = mutableListOf()
+    private val gears: MutableList<Gear> = mutableListOf()
     private var attempts = 0
 
     private var includeNumbers: Boolean = false
@@ -12,7 +12,7 @@ class BruteForce(private val callback: Contract.Callback) : Contract {
     private var includeUppercase: Boolean = false
     private var includeSpecialCharacters: Boolean = false
 
-    override suspend fun execute(
+     suspend fun execute(
         initialLength: Int,
         includeNumbers: Boolean,
         includeLowercase: Boolean,
@@ -27,27 +27,27 @@ class BruteForce(private val callback: Contract.Callback) : Contract {
         populateArray(initialLength)
 
         while (execute && !passwordFound) {
-            // Testo todas as senhas com 1 caractere, depois adiciono outro rotor, testo todas
-            // as possibilidades com senhas de 2 caracteres e depois incluo outro rotor...
-            for (i in rotors.size - 1 downTo 0) {
-                rotateRotorIfNecessary(rotors[i], i)
+            // Testo todas as senhas com 1 caractere, depois adiciono outra gear, testo todas
+            // as possibilidades com senhas de 2 caracteres e depois incluo outra gear...
+            for (i in gears.size - 1 downTo 0) {
+                rotateGearIfNecessary(gears[i], i)
             }
 
-            checkPassword()
-            addRotorIfNecessary(rotors[0])
+            passGuessToBeChecked()
+            addGearIfNecessary(gears[0])
         }
     }
 
-    override fun cancel() {
+     fun cancel() {
         execute = false
     }
 
     private fun populateArray(length: Int) {
         repeat(length) {
-            rotors.add(
+            gears.add(
                 0,
-                Rotor(
-                    "#${rotors.size * -1}",
+                Gear(
+                    "#${gears.size * -1}",
                     includeNumbers,
                     includeLowercase,
                     includeUppercase,
@@ -57,47 +57,47 @@ class BruteForce(private val callback: Contract.Callback) : Contract {
         }
     }
 
-    private fun addRotorIfNecessary(rotor: Rotor) {
+    private fun addGearIfNecessary(gear: Gear) {
         // O rotor da extrema esquerda deve estar no último caractere para que seja válido fazer a verificação
-        if (rotor.isLastCharacter()) {
-            // Se todos os rotores estão no último caractere, incluo um novo rotor no início da lista
-            if (rotors.count { it.isLastCharacter() } == rotors.size) {
+        if (gear.isLastCharacter()) {
+            // Se todos os rotores estão no último caractere, incluo um nova engrenagem no início da lista
+            if (gears.count { it.isLastCharacter() } == gears.size) {
                 populateArray(1)
             }
         }
     }
 
     /**
-     * O rotor pode girar nas seguintes situações:
-     * 1 - Se for o da extrema direita
-     * 2 - Se o rotor ainda não foi inicializado (índice -1)
-     * 3 - Se todos os rotores à direita dele estiverem na última posição
+     * A engrenagem pode girar nas seguintes situações:
+     * 1 - Se for a da extrema direita
+     * 2 - Se a engrenagem ainda não foi inicializada (índice -1)
+     * 3 - Se todas as engrenaens à direita dela estiverem na última posição
      */
-    private fun rotateRotorIfNecessary(currentRotor: Rotor, index: Int) {
-        if (index == rotors.size - 1) { // 1 - Se for o da extrema direita - o último rotor da direita sempre gira.
-            currentRotor.nextIndex()
-        } else if (!currentRotor.initialized) { // 2 - Se o rotor ainda não foi inicializado (índice -1)
-            currentRotor.nextIndex()
-        } else if (rotorsResetFrom(index)) { // 3 - Se todos os rotores à direita dele estiverem na última posição
-            currentRotor.nextIndex()
+    private fun rotateGearIfNecessary(currentGear: Gear, index: Int) {
+        if (index == gears.size - 1) { // 1 - Se for o da extrema direita - o última engrenagem da direita sempre gira.
+            currentGear.nextIndex()
+        } else if (!currentGear.initialized) { // 2 - Se a engrenagem ainda não foi inicializado (índice -1)
+            currentGear.nextIndex()
+        } else if (gearsResetedFrom(index)) { // 3 - Se todos os rotores à direita dele estiverem na última posição
+            currentGear.nextIndex()
         }
     }
 
     /**
-     * Itera sobre o array de rotores a partir do índice recebido (excluindo ele) até a
+     * Itera sobre o array de engrenagens a partir do índice recebido (excluindo ela) até a
      * última posição do array.
      *
-     * Retorna true se todos os rotores iterados estiverem resetados.
+     * Retorna true se todas as engrenagens iteradas estiverem resetadas.
      */
-    private fun rotorsResetFrom(excludedIndex: Int): Boolean {
-        for (i in (excludedIndex + 1) until rotors.size)
-            if (!rotors[i].hasReset) return false
+    private fun gearsResetedFrom(excludedIndex: Int): Boolean {
+        for (i in (excludedIndex + 1) until gears.size)
+            if (!gears[i].hasReset) return false
         return true
     }
 
-    private suspend fun checkPassword() {
+    private suspend fun passGuessToBeChecked() {
         var guess = ""
-        rotors.forEach { guess += it.getCurrentLetter() }
-        passwordFound = callback.checkGuess(guess, ++attempts)
+        gears.forEach { guess += it.getCurrentLetter() }
+        passwordFound = callback(guess, ++attempts)
     }
 }

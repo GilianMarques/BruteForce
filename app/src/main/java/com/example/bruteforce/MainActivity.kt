@@ -8,9 +8,8 @@ import android.text.TextWatcher
 import android.view.View.GONE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.bruteforce.algorithm.Contract
 import com.example.bruteforce.algorithm.BruteForce
-import com.example.bruteforce.algorithm.Rotor
+import com.example.bruteforce.algorithm.Gear
 import com.example.bruteforce.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +19,7 @@ import kotlinx.coroutines.withContext
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
-class MainActivity : AppCompatActivity(), Contract.Callback {
+class MainActivity : AppCompatActivity() {
 
     private var delayBetweenIterations: Long = 0
     private lateinit var binding: ActivityMainBinding
@@ -122,7 +121,7 @@ class MainActivity : AppCompatActivity(), Contract.Callback {
 
             val initChars = (initialCharsCount.takeIf { it.isNotEmpty() } ?: "1").toInt()
 
-            algorithm = BruteForce(this@MainActivity)
+            algorithm = BruteForce(::checkGuess)
 
             lifecycleScope.launch(Dispatchers.IO) {
                 algorithm!!.execute(
@@ -139,13 +138,13 @@ class MainActivity : AppCompatActivity(), Contract.Callback {
 
     private fun analyzePasswordAndUpdateUi(password: String) {
 
-        val rotor = Rotor()
+        val gear = Gear()
 
         val sets = mapOf(
-            rotor.numbers to binding.swNum,
-            rotor.lowercaseLetters to binding.swAzLowercase,
-            rotor.uppercaseLetters to binding.swAzUppercase,
-            rotor.specialCharacters to binding.swSpecialChars
+            gear.numbers to binding.swNum,
+            gear.lowercaseLetters to binding.swAzLowercase,
+            gear.uppercaseLetters to binding.swAzUppercase,
+            gear.specialCharacters to binding.swSpecialChars
         )
 
         for ((set, switch) in sets) switch.isChecked =
@@ -153,7 +152,7 @@ class MainActivity : AppCompatActivity(), Contract.Callback {
 
     }
 
-    override suspend fun checkGuess(guess: String, attempts: Int): Boolean {
+    suspend fun checkGuess(guess: String, attempts: Int): Boolean {
 
         val found = guess == password
         if (System.currentTimeMillis() - lastUiUpdate >= uiUpdateInterval || found) withContext(Dispatchers.Main) {
@@ -161,7 +160,8 @@ class MainActivity : AppCompatActivity(), Contract.Callback {
             binding.tvPassword.text = guess
 
             binding.tvElapsedTime.text = String.format(
-                this@MainActivity.getString(R.string.Tempo_decorrido_x), formatMillis(System.currentTimeMillis() - executionMillis)
+                this@MainActivity.getString(R.string.Tempo_decorrido_x),
+                formatMillis(System.currentTimeMillis() - executionMillis)
             )
 
             binding.tvLength.text = String.format(
