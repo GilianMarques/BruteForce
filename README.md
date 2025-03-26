@@ -18,43 +18,12 @@ Suponha que a senha seja `AB1`. O algoritmo funciona assim:
 
 Esse método não utiliza nenhum tipo de otimização ou conhecimento prévio da senha, garantindo que todas as possibilidades sejam testadas. Embora seja ineficiente para longas senhas, é uma abordagem simples para entender o impacto de uma senha fraca.
 
-
-### Funcionalidades do aplicativo:
-1. **Execução em tempo real:** O aplicativo exibe:
-   - A senha atual que o algoritmo está testando.
-   - O número total de tentativas realizadas.
-   - O tempo decorrido desde o início da execução.
-   
-2. **Entrada personalizada:** O usuário pode:
-   - Inserir uma senha alvo para que o algoritmo tente encontrá-la.
-   - Especificar informações adicionais, como:
-     - Começar com um número mínimo de caracteres (por exemplo, senhas com no mínimo 8 caracteres).
-     - Quais tipos de caracteres usar: letras minúsculas, maiúsculas, números ou caracteres especiais.
-
-3. **Análise automática:** Quando o usuário insere uma senha, o aplicativo automaticamente:
-   - Analisa a senha.
-   - Marca os switches correspondentes (minúsculas, maiúsculas, números, caracteres especiais).
-   - Define o comprimento inicial com base na senha fornecida.
-
-4. **Configuração manual:** O usuário pode desmarcar ou ajustar manualmente as opções de caracteres e comprimento inicial, permitindo que o algoritmo comece sem informações prévias.
-
-### Interface do aplicativo:
-- **Entrada de senha:** O usuário insere a senha alvo.
-- **Switches de configuração:** Opções para incluir/excluir:
-  - Letras minúsculas.
-  - Letras maiúsculas.
-  - Números.
-  - Caracteres especiais.
-- **Botão de execução:** Inicia ou interrompe o algoritmo.
-- **Exibição de progresso:** Mostra o estado atual do algoritmo, incluindo a senha testada, número de tentativas e tempo decorrido.
-
 ### Propsta do app:
 O objetivo do aplicativo é ajudar os usuários a entender o impacto de senhas seguras e os desafios de usar força bruta como método de descoberta. Ele permite visualizar o tempo necessário para encontrar uma senha com diferentes combinações de caracteres e comprimentos.
 
 ---
 
 ## Captura de tela
-Adicione aqui uma captura de tela mostrando a interface do aplicativo:
 
 <img src="Screenrecorder-2025-01-25-21-32-29-483.gif" alt="Demonstração do aplicativo" width="300" />
 
